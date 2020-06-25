@@ -7,6 +7,7 @@ import Pic5 from "./pic/pic5.png";
 import Pic6 from "./pic/pic6.png";
 import Pic7 from "./pic/pic7.png";
 import Pic8 from "./pic/pic8.png";
+import randomWords from './randomWords'
 
 
 
@@ -17,9 +18,10 @@ constructor(props){
     image: Pic1,
     wrong : 8,
     currentWrong: 1 ,
-    answer: "AB",
-    answerGot: [],
+    answer: randomWords(),
+    answerGotSoFar: [],
     answerLeftOver: [],
+    copy: [],
     guessPickedAlready: [],
     input: "",
     turn: true,     // true = player 1 ; false = player2
@@ -30,6 +32,14 @@ constructor(props){
 
 componentDidMount(){
     this.setState({answerLeftOver :[...this.state.answer]})
+    this.setState({copy :[...this.state.answer]})
+    let i ;
+
+    for( i = 0; i < this.state.answer.length ; i++)
+    {
+      this.state.answerGotSoFar.push('_')
+    }
+    console.log(this.state.answerGotSoFar.length)
     console.log("MOUNTING")
 }
 
@@ -76,7 +86,7 @@ calculate=(e)=>{
             {   
                   //Wins
                   if(this.state.input == this.state.answer)
-                      this.setState({winner: "Player1"})
+                        alert("Player 1 wins")
                       else{
                             
                             if(this.state.input.length ==  1)
@@ -95,6 +105,18 @@ calculate=(e)=>{
                                       //found  and removing
                                       if(this.state.input == this.state.answerLeftOver[i])
                                         {
+                                          // let theValue;
+                                          // theValue = this.state.copy.find(element => element = this.state.input)
+                                          console.log("VALUE" + this.state.input)
+                                          let position;
+                                          position = this.state.copy.indexOf(this.state.input)
+
+                                          let copyOver = this.state.answerGotSoFar.slice()
+                                      
+                                          copyOver[position] = this.state.input
+                                          console.log(copyOver + "COPY")
+                                          this.setState({answerGotSoFar: copyOver})
+                                          
                                           this.state.answerLeftOver.splice(i, 1)
                                         }
                                     }
@@ -136,7 +158,19 @@ calculate=(e)=>{
                              //found  and removing
                              if(this.state.input == this.state.answerLeftOver[i])
                                {
-                                 this.state.answerLeftOver.splice(i, 1)
+                                // let theValue;
+                                // theValue = this.state.copy.find(element => element = this.state.input)
+                                console.log("VALUE" + this.state.input)
+                                let position;
+                                position = this.state.copy.indexOf(this.state.input)
+
+                                let copyOver = this.state.answerGotSoFar.slice()
+                             
+                                copyOver[position] = this.state.input
+                                console.log(copyOver + "COPY")
+                                this.setState({answerGotSoFar: copyOver})
+                                
+                                this.state.answerLeftOver.splice(i, 1)
                                }
                            }
                              console.log(this.state.input + " correct")
@@ -182,7 +216,8 @@ updateInput = (e) =>{
         status = ("Winner " + "The answer is" + this.state.answer) 
     else
         status = (<img src={this.state.image} alt="Pic"/>)
-
+    
+        console.log(this.state.answerGotSoFar + " HERE")
 
     return (
       <div >
@@ -194,8 +229,15 @@ updateInput = (e) =>{
         </label>
         <input onClick={this.calculate} type="submit" value="Submit" />
           </form>
-        {}
-
+          
+      
+        {this.state.answerGotSoFar.map((x) =>(
+          <div>
+            <h1>{x}</h1>
+            </div>
+        ))}
+      
+       
           
       </div>
     );
