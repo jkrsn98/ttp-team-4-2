@@ -7,10 +7,17 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 const App= () => {
   return(
-    <BrowserRouter>
-      <Route path="/" exact component={Join} />
-      <Route path="/chat" component={Chat} />
-    </BrowserRouter>
+    <>
+      <Route path="/" exact component={Join}/>
+      <Route path="/chat" render={ () => (
+        <>
+        <Chat/>
+        <Game/>
+        </>
+      )} 
+      />
+    </>
+  
   );
   // return (
   //   <div className="App">

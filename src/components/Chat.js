@@ -7,7 +7,7 @@ socket.on('chat-message', data =>{
     console.log(data)
 })
 
-const Chat = ({location}) => {
+const Chat = () => {
 
     // const [state, setState] = useState({message: '', name: ''});
     const [name, setName] = useState('');
@@ -17,12 +17,22 @@ const Chat = ({location}) => {
     const [messages, setMessages] = useState([]);
 
     // const [chat, setChat] = useState([]);
-    
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        let results = regex.exec(window.location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      };
     useEffect( () => {
-        const { name, role, room } = queryString.parse(location.search); 
+        
+        const name = getUrlParameter('name');
+        const role = getUrlParameter('role');
+        const room = getUrlParameter('room');
+
         console.log(name, role, room);
         setName(name);
         setRole(role);
+        setRoom(room);
         socket.emit('join', {name, role, room}, ({err}) => {
             // alert(err);
         })
@@ -31,7 +41,7 @@ const Chat = ({location}) => {
             socket.emit('disconnect');
             socket.off();
         }   
-    },[location.search]);
+    },[]);
 
     useEffect( () => {
         socket.on('message', (message) =>{
