@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
+import Game from './Game.js'
 import './Chat.css'
 
 const socket = io.connect('http://localhost:3001')
@@ -40,6 +41,8 @@ function Chat() {
     }
 
     return (
+        <div>
+        <Game></Game>
         <div className = "chatbox">
             <form onSubmit={onMessageSubmit}>
                 <div className="name-field">
@@ -58,6 +61,7 @@ function Chat() {
             <div className="render-chat">
                 {renderChat()}
             </div>
+        </div>
         </div>
     )
 }
