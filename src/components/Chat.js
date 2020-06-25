@@ -12,8 +12,8 @@ function Chat() {
     const [state, setState] = useState({message: '', name: ''});
     const [chat, setChat] = useState([]);
 
-
     useEffect( () => {
+
         socket.on('message', ({name, message})=>{
             setChat([...chat, {name, message}])
         })
@@ -31,28 +31,40 @@ function Chat() {
         setState({message:'', name:name})
     }
 
+    let i = 0;
     const renderChat = () => {
+        if(i%2===0){
+            i++
         return chat.map(({ name, message }, index) => (
-          <div key={index}>
-            <h3>{name}: <span>{message}</span></h3>
+          <div className="msgContainer" key={index}>
+            <p className="chatName">{name} </p> <span className="chatMsg">{message}</span>
           </div>
         ))
+    }
+        else{
+            i++;
+        return chat.map(({ name, message }, index) => (
+            <div className ="msgContainer darker" key={index}>
+              <p className="chatName">{name}:</p> <span className="chatMsg">{message}</span>
+            </div>
+          ))
+        }
     }
 
     return (
         <div className = "chatbox">
             <form onSubmit={onMessageSubmit}>
                 <div className="name-field">
-                    <label for="name">name: </label>
+                    <label className ="name" for="name">name: </label>
                     <input name="name" onChange={e => onTextChange(e)} value={state.name}  label="name"> 
                     </input>
                 </div>
                 <div className="name-field">
-                    <label for="message">message: </label>
+                    <label className = "message"for="message">message: </label>
                     <input name="message" onChange={e => onTextChange(e)} value={state.message}  label="message"> 
                     </input>
                 </div>
-                <button>Send</button>
+                <button className="sendBtn">Send</button>
             </form>
 
             <div className="render-chat">
