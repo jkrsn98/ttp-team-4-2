@@ -7,7 +7,7 @@ import Pic5 from "./pic/pic5.png";
 import Pic6 from "./pic/pic6.png";
 import Pic7 from "./pic/pic7.png";
 import Pic8 from "./pic/pic8.png";
-
+import randomWords from './randomWords'
 
 
 class Game extends Component {
@@ -17,7 +17,7 @@ constructor(props){
     image: Pic1,
     wrong : 8,
     currentWrong: 1 ,
-    answer: "HI",
+    answer: randomWords(),
     answerGot: [],
     answerLeftOver: [],
     guessPickedAlready: [],
@@ -73,7 +73,7 @@ calculate=(e)=>{
             if(this.state.turn)
             {   
               //Wins
-              if(this.state.input == this.state.answer)
+              if(this.state.input == this.state.answerLeftOver.forEach(element => element))
                   alert("Player 1 Winner")
                   else{
                         //Gets it wrong
@@ -119,10 +119,12 @@ updateInput = (e) =>{
         console.log("INPUT" +this.state.input)
 }
 
-
+guessedLetter = () =>{
+  return this.state.answer.split('').map(letter => letter === this.state.input ? letter:" _ ")
+}
   render() {
       console.log("answerleftover " + this.state.answerLeftOver)
-    
+      console.log("the answer is " + this.state.answer)
       let player 
       let status
 
@@ -142,6 +144,10 @@ updateInput = (e) =>{
     return (
       <div >
         {status}
+        <div>
+        {this.guessedLetter}
+        </div>
+        
         <form>
         <label>
           {player}
@@ -149,6 +155,7 @@ updateInput = (e) =>{
         </label>
         <input onClick={this.calculate} type="submit" value="Submit" />
       </form>
+      <p>{this.guessedLetter()}</p>
 
 
           
