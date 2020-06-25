@@ -1,0 +1,11 @@
+.chatbox{
+    border: 2px solid black;
+    position:absolute;
+    width:800px;
+    height:300px;
+    bottom:0px;
+    right:25%;
+    left:50%;
+    margin-left:-400px; 
+    overflow: scroll;
+}
