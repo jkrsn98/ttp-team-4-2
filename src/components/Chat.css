@@ -7,13 +7,16 @@
     right:25%;
     left:50%;
     margin-left:-400px; 
-    overflow: scroll;
+    /* overflow: scroll; */
     background-color: rgb(195, 212, 205);
     border-radius: 10px;
 }
 
 .render-chat{
     position: absolute;
+    height: 240px;
+    width: 800px;
+    overflow: scroll;
     /* top: 80vh; */
 }
 .name-field{
@@ -102,4 +105,13 @@
 
 input{
     padding: 5px;
+}
+
+.messageInput{
+    border: 1px solid rgba(194, 193, 193, 0.932);
+    position: relative;;
+    bottom:0px;
+    margin-top: 200px;
+
+    border-radius: 10px;
 }

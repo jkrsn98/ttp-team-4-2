@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import io from 'socket.io-client'
 import './Chat.css'
 import queryString from 'query-string';
+import ScrollableFeed from 'react-scrollable-feed'
+
 const socket = io.connect('http://localhost:3001')
 socket.on('chat-message', data =>{
     console.log(data)
@@ -65,23 +67,29 @@ const Chat = () => {
           </div>
         ))
     }
-
+    const el = useRef(null);
+    useEffect(() => {
+        el.current.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    });
     console.log(message, messages);
 
     return (
         <div className = "chatbox">
             {/* <form onSubmit={onMessageSubmit}> */}
-                <div className="name-field">
-                    <label for="message">message: </label>
-                    <input name="message" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
-                    onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
-                    </input>
-                </div>
+
                 {/* <button>Send</button> */}
             {/* </form> */}
 
-            <div className="render-chat">
+            <div className="render-chat" id="scroll">
                 {renderChat()}
+                <div id={'el'} ref={el}>
+                </div>
+            </div>
+            <div className="name-field">
+                    <label for="message" className="messageInput">message: </label>
+                    <input name="message" className="messageInput" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
+                    onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
+                    </input>
             </div>
         </div>
     )
