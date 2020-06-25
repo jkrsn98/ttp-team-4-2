@@ -17,8 +17,8 @@ io.on('connection', socket => {
         console.log(name, role, room);
         const {err, player} = addPlayer({id: socket.id, name, role, room})
         if(err) return cb({err})
-        socket.emit('message', {player:'broadcast', text: `${player.name}, welcome to room ${player.room}`});
-        socket.broadcast.to(player.room).emit('message', {player:'broadcast', text:`${player.name} has joined!`})
+        socket.emit('message', {player:'! ', text: `${player.name}, welcome to room ${player.room}`});
+        socket.broadcast.to(player.room).emit('message', {player:'! ', text:`${player.name} has joined!`})
         socket.join(player.room)
     })
     socket.on('sendMessage', (message, callback) => {
