@@ -3,6 +3,17 @@ const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const { addPlayer, getPlayer } = require('./players');
 
+app.use((req, res, next) =>
+{
+    res.header("Access-Control-Allow-Origin", process.env.REACT_APP_HOST || "*");
+    res.header("Access-Control-Allow-Methods", "GET, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", true);
+    return next();
+});
+
+app.use(express.static(__dirname + "/../build"));
+
 const port = process.env.PORT || 3001;
 http.listen(port, function(){
     console.log('listening on :3001')
