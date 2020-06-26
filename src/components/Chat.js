@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import io from 'socket.io-client'
 import './Chat.css'
+<<<<<<< HEAD
 import queryString from 'query-string';
 import ScrollableFeed from 'react-scrollable-feed'
+=======
+// import queryString from 'query-string';
+// import ScrollableFeed from 'react-scrollable-feed'
+>>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b
 
 const socket = io.connect('http://localhost:3001')
 socket.on('chat-message', data =>{
@@ -86,7 +91,11 @@ const Chat = () => {
                 </div>
             </div>
             <div className="name-field">
+<<<<<<< HEAD
                     <label className="chatMsg"for="message" className="messageInput">message: </label>
+=======
+                    <label for="message" className="messageInput">message: </label>
+>>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b
                     <input name="message" className="messageInput" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
                     onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
                     </input>
