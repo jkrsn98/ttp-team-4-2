@@ -169,8 +169,16 @@ updateInput = (e) =>{
      else 
         status = (<img src={this.state.image} alt="Pic"/>)
 
-    
         console.log(" Got :" + this.state.answerGotSoFar )
+
+    let i;
+    let display = "\n"
+
+    for( i = 0; i < this.state.answerGotSoFar.length; i++)
+    {
+        display += " " + this.state.answerGotSoFar[i]
+    }
+
 
     return (
       <div  className="main">
@@ -185,11 +193,16 @@ updateInput = (e) =>{
           <button type="button" class="btn btn-outline-danger" onClick={this.reset}>Reset</button>
           
       
-        {this.state.answerGotSoFar.map((x) =>(
+        {/* {this.state.answerGotSoFar.map((x) =>(
           <div>
             <h1>{x}</h1>
             </div>
-        ))}
+        ))} */}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {display}
       
           
       </div>
