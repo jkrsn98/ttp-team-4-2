@@ -7,6 +7,7 @@ import Pic5 from "../pic/pic5.png";
 import Pic6 from "../pic/pic6.png";
 
 import randomWords from './randomWords'
+import './Game.css';
 
 
 
@@ -172,7 +173,8 @@ updateInput = (e) =>{
         console.log(" Got :" + this.state.answerGotSoFar )
 
     return (
-      <div >
+      <div  className="main">
+        <h4 style={{display: 'flex', justifyContent: 'center'}}>HANGMAN</h4>
         {status}
         <form>
         <label>
@@ -189,7 +191,6 @@ updateInput = (e) =>{
             </div>
         ))}
       
-       
           
       </div>
     );
