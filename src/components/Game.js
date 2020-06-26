@@ -5,17 +5,16 @@ import Pic3 from "./pic/pic3.png";
 import Pic4 from "./pic/pic4.png";
 import Pic5 from "./pic/pic5.png";
 import Pic6 from "./pic/pic6.png";
-import Pic7 from "./pic/pic7.png";
-import Pic8 from "./pic/pic8.png";
-import randomWords from './randomWords'
 
+import randomWords from './randomWords'
+import './Game.css';
 
 class Game extends Component {
 constructor(props){
   super(props);
   this.state = {
     image: Pic1,
-    images: [Pic1,Pic2,Pic3,Pic4,Pic5,Pic6,Pic7,Pic8],
+    images: [Pic1,Pic2,Pic3,Pic4,Pic5,Pic6],
     wrong : 8,
     currentWrong: 0 ,
     answer: randomWords(),
@@ -62,12 +61,6 @@ reRender=()=>{
     case 6:
       this.setState({image : Pic6});
       break;
-    case 7:
-      this.setState({image : Pic7});
-      break;
-    case 8:
-      this.setState({image : Pic8});
-      break;
     default:
         break;   
   }
@@ -83,71 +76,25 @@ reRender=()=>{
       status = "GAME OVER"
       else
       status = (<img src={this.state.images[this.state.currentWrong]}/>)
-      // if(this.state.turn)
-      //   player = "Player1"
-      // else
-      //   player = "Player2"
 
         const guessedLetter = () =>{
           return this.state.answer.split('').map(letter => this.state.answerGot.includes(letter) ? 
           letter : " _ ")
         }
         const calculate=(e)=>{
-
           e.preventDefault();
-
-          // this.setState({answerGot: this.state.})
           const letter = this.state.input;
-          //Player 1 turn
           this.state.answer.includes(letter) ? this.state.answerGot.push(letter) : 
           this.setState({currentWrong: this.state.currentWrong + 1})
           console.log("ans got " + this.state.answerGot)
           console.log("crrent worng" + this.state.currentWrong)
           this.reRender();
           guessedLetter();
-          // {   
-          //   //Wins
-          //   if(this.state.input == this.state.answerLeftOver.forEach(element => element))
-          //       alert("Player 1 Winner")
-          //       else{
-          //             //Gets it wrong
-          //             // if(this.state.input.length ==  1)
-          //             //     if(!this.state.answerLeftOver.includes(this.state.input))
-          //             //     //Gets it right
-          //             //     else{
-          //             //           this.setState({answerLeftOver: this.state.answerLeftOver.splice(this.state.answerLeftOver.indexof(this.state.input),1) })  
-          //             //       }
-
-          //                     this.reRender();
-          //                     this.setState({turn : !this.state.turn})
-          //                     console.log("In player 1" + this.state.currentWrong)
-          //       }      
-          // }
-        // Player 2 turn
-        // else{
-        //   //Wins
-        //   if(this.state.input == this.state.answer)
-        //           alert("Player 2 Winner")
-        //           {
-        //             //Gets it wrong
-        //             // if( this.state.input.length ==  1)
-        //             //     if(!this.state.answerLeftOver.includes(this.state.input))
-        //                        this.setState({currentWrong: this.state.currentWrong + 1})
-
-        //             //   //Gets it right
-        //             //     else{
-        //             //       this.setState({answerLeftOver: this.state.answerLeftOver.splice(this.state.answerLeftOver.indexof(this.state.input),1) })  
-        //             //     }
-        //                       this.reRender();
-        //                       this.setState({turn : !this.state.turn})
-        //                       console.log("In player 2" +this.state.currentWrong)
-        //           }
-        // }
 }
 
 
     return (
-      <div >
+      <div className="main">
         {status}
         <form>
         <label>
