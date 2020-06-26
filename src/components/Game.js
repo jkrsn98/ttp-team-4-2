@@ -150,6 +150,14 @@ reset = (e) =>
   this.setState(this.resetState)
   this.setState({answerLeftOver :[...this.state.answer]})
   this.setState({copy :[...this.state.answer]})
+
+  let i;
+  let temp = []
+  for( i = 0; i < this.state.answer.length ; i++)
+  {
+    temp.push('_')
+  }
+  this.setState({answerGotSoFar: temp})
 }
 
 
