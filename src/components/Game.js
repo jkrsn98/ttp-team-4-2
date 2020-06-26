@@ -35,11 +35,13 @@ componentDidMount(){
     this.setState({copy :[...this.state.answer]})
     let i ;
 
+    let temp = []
 
     for( i = 0; i < this.state.answer.length ; i++)
     {
-      this.state.answerGotSoFar.push('_')
+      temp.push('_')
     }
+    this.setState({answerGotSoFar: temp})
     console.log(this.state.answerGotSoFar.length) 
 }
 
@@ -149,6 +151,7 @@ reset = (e) =>
   this.setState({answerLeftOver :[...this.state.answer]})
   this.setState({copy :[...this.state.answer]})
 }
+
 
 
 updateInput = (e) =>{
