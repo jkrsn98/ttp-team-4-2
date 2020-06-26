@@ -16,8 +16,9 @@ constructor(props){
   super(props);
   this.state = {
     image: Pic1,
-    wrong : 6,
-    currentWrong: 1 ,
+    images: [Pic1,Pic2,Pic3,Pic4,Pic5,Pic6],
+    wrong : 5,
+    currentWrong: 0 ,
     answer: randomWords(),
     answerGotSoFar: [],
     answerLeftOver: [],
@@ -194,7 +195,7 @@ updateInput = (e) =>{
        else if(this.state.answerLeftOver == 0)
        status = ("Winner!!!")
      else 
-        status = (<img src={this.state.image} alt="Pic"/>)
+        status = (<img src={this.state.images[this.state.currentWrong]} alt="Pic"/>)
 
         console.log(" Got :" + this.state.answerGotSoFar )
 
