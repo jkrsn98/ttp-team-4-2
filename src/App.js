@@ -7,16 +7,18 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 const App= () => {
   return(
-    <>
+    <div className="App">
       <Route path="/" exact component={Join}/>
       <Route path="/chat" render={ () => (
         <>
+        <div className="App2">
         <Chat/>
         <Game/>
+        </div>
         </>
       )} 
       />
-    </>
+    </div>
   
   );
   // return (
