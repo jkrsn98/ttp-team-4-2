@@ -1,69 +1,99 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import io from 'socket.io-client'
-import Game from './Game.js'
 import './Chat.css'
+import queryString from 'query-string';
+import ScrollableFeed from 'react-scrollable-feed'
 
 const socket = io.connect('http://localhost:3001')
 socket.on('chat-message', data =>{
     console.log(data)
 })
 
-function Chat() {
+const Chat = () => {
 
-    const [state, setState] = useState({message: '', name: ''});
-    const [chat, setChat] = useState([]);
+    // const [state, setState] = useState({message: '', name: ''});
+    const [name, setName] = useState('');
+    const [role, setRole] = useState('');
+    const [room, setRoom] = useState('');
+    const [message, setMessage] = useState('');
+    const [messages, setMessages] = useState([]);
 
+    // const [chat, setChat] = useState([]);
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        let results = regex.exec(window.location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      };
+    useEffect( () => {
+        
+        const name = getUrlParameter('name');
+        const role = getUrlParameter('role');
+        const room = getUrlParameter('room');
+
+        console.log(name, role, room);
+        setName(name);
+        setRole(role);
+        setRoom(room);
+        socket.emit('join', {name, role, room}, ({err}) => {
+            // alert(err);
+        })
+
+        return ()=>{
+            socket.emit('disconnect');
+            socket.off();
+        }   
+    },[]);
 
     useEffect( () => {
-        socket.on('message', ({name, message})=>{
-            setChat([...chat, {name, message}])
+        socket.on('message', (message) =>{
+            setMessages([...messages, message])
         })
-    })
+    }, [messages])
 
-
-    const onTextChange = (event) =>{
-        setState({...state, [event.target.name] : event.target.value})
-    }
+    //function for sending messages
 
     const onMessageSubmit = (event) =>{
         event.preventDefault();
-        const {name, message} = state;
-        socket.emit('message', {name, message})
-        setState({message:'', name:name})
+        // const {name, message} = state;
+        if(message)
+            socket.emit('sendMessage', message, ()=>setMessage(''));
     }
 
     const renderChat = () => {
-        return chat.map(({ name, message }, index) => (
+        return messages.map(({ player, text }, index) => (
           <div key={index}>
-            <h3>{name}: <span>{message}</span></h3>
+            <h3>{player}: <span>{text}</span></h3>
           </div>
         ))
     }
+    const el = useRef(null);
+    useEffect(() => {
+        el.current.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    });
+    console.log(message, messages);
 
     return (
-        <div>
-        <Game></Game>
         <div className = "chatbox">
-            <form onSubmit={onMessageSubmit}>
-                <div className="name-field">
-                    <label for="name">name: </label>
-                    <input name="name" onChange={e => onTextChange(e)} value={state.name}  label="name"> 
-                    </input>
-                </div>
-                <div className="name-field">
-                    <label for="message">message: </label>
-                    <input name="message" onChange={e => onTextChange(e)} value={state.message}  label="message"> 
-                    </input>
-                </div>
-                <button>Send</button>
-            </form>
+            {/* <form onSubmit={onMessageSubmit}> */}
 
-            <div className="render-chat">
+                {/* <button>Send</button> */}
+            {/* </form> */}
+
+            <div className="render-chat" id="scroll">
                 {renderChat()}
+                <div id={'el'} ref={el}>
+                </div>
             </div>
-        </div>
+            <div className="name-field">
+                    <label for="message" className="messageInput">message: </label>
+                    <input name="message" className="messageInput" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
+                    onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
+                    </input>
+            </div>
         </div>
     )
 }
 
 export default Chat
+
