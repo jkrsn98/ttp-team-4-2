@@ -2,7 +2,12 @@ let wordList = [
     "hi",
     "hello",
     "happy",
-    "coding"
+    "coding",
+    "world",
+    "interesting",
+    "information",
+    "education",
+    "testing"
   ]
   
   export default function randomWords(){
