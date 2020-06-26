@@ -213,12 +213,11 @@ updateInput = (e) =>{
 
     return (
       <div  className="main">
-        <h4 style={{display: 'flex', justifyContent: 'center'}}>M E L T M A N</h4>
+        <h2 style={{display: 'flex', justifyContent: 'center'}}>M E L T M A N</h2>
         {status}
         <br></br>
         <h4 style={{fontWeight: 'bold'}}>{status2}</h4>
         <h1>{display}</h1>
-        <br></br>
         <br></br>
         <br></br>
         <form>
