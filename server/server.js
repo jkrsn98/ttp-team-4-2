@@ -1,7 +1,7 @@
 const app = require('express')()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
-const { addPlayer, getPlayer } = require('./players');
+const { addPlayer, getPlayer } = require('./Players');
 
 const router = require('./router');
 app.use(router);

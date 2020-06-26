@@ -1,8 +1,8 @@
 .chatbox{
     border: 1px solid rgba(194, 193, 193, 0.932);
     position:absolute;
-    width:800px;
-    height:300px;
+    width:600px;
+    height:200px;
     /* overflow: scroll; */
     background-color: rgb(195, 212, 205);
     border-radius: 10px;
@@ -14,20 +14,13 @@
 
 .render-chat{
     position: absolute;
-    height: 240px;
-    width: 800px;
+    height: 200px;
+    width: 600px;
     overflow: scroll;
     /* top: 80vh; */
 }
 
-.message{
-    margin:20px;
-    border-radius: 5px;
-    background-color:#e4e0e0;
-    box-shadow: 0.5px 0.5px 0.5px black;
-    padding: 5px;
-    
-}
+
 
 .chatName{
     margin:10px;
@@ -41,25 +34,7 @@
     background-color: rgb(124, 120, 95);
     margin-top: 3vh;
 }
-.chatMsg{
-    
-    border: .5px solid black;
-    justify-content: space-evenly;
-    position: absolute;
-    color: rgb(51, 31, 31);
-    margin-top: -45px;
-    margin-inline-start: 90%;
-    margin-right: 4%;
-    width: max-content;
-    min-width: 50vw;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 20px;
-    text-align: center;
-    border-top-left-radius: 0px;
-    padding: 1px;
-    font-family: fantasy;
-}
+
 .msgContainer{
   margin: 10px;
 }
@@ -76,7 +51,6 @@ input{
     border: 1px solid rgba(194, 193, 193, 0.932);
     position: relative;;
     bottom:0px;
-    margin-top: 200px;
-
+    margin-top: 1px;
     border-radius: 10px;
 }
