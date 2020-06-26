@@ -154,6 +154,7 @@ reset = (e) =>
 
 
 
+
 updateInput = (e) =>{
 
         this.setState({input:  e.target.value})
@@ -168,7 +169,7 @@ updateInput = (e) =>{
     if(this.state.currentWrong > this.state.wrong +1)
        status = "GAME OVER!" 
        else if(this.state.answerLeftOver == 0)
-       status = ("Winner!!! The answer is: " + this.state.answer)   
+       status = ("Winner!!!")
      else 
         status = (<img src={this.state.image} alt="Pic"/>)
 
