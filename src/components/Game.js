@@ -135,7 +135,7 @@ calculate=(e)=>{
 
                               //Executes everytime no matter what
                                 this.reRender();
-                                this.setState({turn : !this.state.turn})
+                                this.setState({turn : !this.state.turn, input: ''})
                                
                       }
                     
