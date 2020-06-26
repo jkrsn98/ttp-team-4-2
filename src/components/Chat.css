@@ -3,13 +3,13 @@
     position:absolute;
     width:800px;
     height:300px;
-    bottom:0px;
-    right:25%;
-    left:50%;
-    margin-left:-400px; 
     /* overflow: scroll; */
     background-color: rgb(195, 212, 205);
     border-radius: 10px;
+    position:absolute;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 .render-chat{
