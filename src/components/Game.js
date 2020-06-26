@@ -162,7 +162,7 @@ updateInput = (e) =>{
     
       let status
 
-    if(this.state.currentWrong >= this.state.wrong )
+    if(this.state.currentWrong > this.state.wrong +1)
        status = "GAME OVER!" 
        else if(this.state.answerLeftOver == 0)
        status = ("Winner!!! The answer is: " + this.state.answer)   
