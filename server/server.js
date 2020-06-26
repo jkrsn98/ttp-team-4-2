@@ -3,8 +3,6 @@ const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const { addPlayer, getPlayer } = require('./players');
 
-const router = require('./router');
-app.use(router);
 const port = process.env.PORT || 3001;
 http.listen(port, function(){
     console.log('listening on :3001')
