@@ -209,12 +209,16 @@ updateInput = (e) =>{
 
     return (
       <div  className="main">
-        <h4 style={{display: 'flex', justifyContent: 'center'}}>MELTMAN</h4>
+        <h1 style={{display: 'flex', justifyContent: 'center'}}>M E L T M A N</h1>
         {status}
+        <h1>{display}</h1>
+        <br></br>
+        <br></br>
+        <br></br>
         <form>
         <label>
-          <input type="text" maxLength={1} value={this.state.input} onChange={this.updateInput} />
-        </label>
+          <input type="text" className="inputField" maxLength={1} value={this.state.input} onChange={this.updateInput} />
+        </label><br></br>
         <input class="btn btn-outline-dark"onClick={this.calculate} type="submit" value="Submit" />
           </form>
           <button type="button" class="btn btn-outline-danger" onClick={this.NewGame}>New Game</button>
@@ -227,11 +231,11 @@ updateInput = (e) =>{
             <h1>{x}</h1>
             </div>
         ))} */}
+        {/* <br></br>
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
-        <h1>{display}</h1>
+        <h1>{display}</h1> */}
       
           
       </div>
