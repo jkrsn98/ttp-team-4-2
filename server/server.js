@@ -5,8 +5,8 @@ const { addPlayer, getPlayer } = require('./players');
 
 const router = require('./router');
 app.use(router);
-
-http.listen(3001, function(){
+const port = process.env.PORT || 3001;
+http.listen(port, function(){
     console.log('listening on :3001')
 })
 
