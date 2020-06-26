@@ -4,11 +4,16 @@ import './Chat.css'
 // import queryString from 'query-string';
 // import ScrollableFeed from 'react-scrollable-feed'
 
-const socket = io.connect('http://localhost:3001')
+let ENDPOINT;
+
+if(process.env.NODE_ENV === "development") ENDPOINT = "localhost:3001";
+else if(process.env.NODE_ENV === "production") ENDPOINT = `https://meltman.herokuapp.com`;
+
+const socket = io(ENDPOINT);
+
 socket.on('chat-message', data =>{
     console.log(data)
 })
-
 const Chat = () => {
 
     // const [state, setState] = useState({message: '', name: ''});
