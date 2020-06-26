@@ -76,16 +76,16 @@
     background-color: rgb(124, 120, 95);
     margin-top: 3vh;
 }
-.chatMsg{
+.messageInput{
     
     border: .5px solid black;
     justify-content: space-evenly;
     position: absolute;
     color: rgb(51, 31, 31);
-    margin-top: -45px;
+    margin-top: 15vh;
     margin-inline-start: 90%;
     margin-right: 4%;
-    width: max-content;
+    width: 50vw;
     min-width: 50vw;
     background-color: #aab4adfb;
     border-radius: 5px;
@@ -95,6 +95,7 @@
     border-top-left-radius: 0px;
     padding: 1px;
     font-family: fantasy;
+    margin-left: 15vw;
 }
 .msgContainer{
   margin: 10px;
@@ -108,11 +109,11 @@ input{
     padding: 5px;
 }
 
-.messageInput{
+/* .messageInput{
     border: 1px solid rgba(194, 193, 193, 0.932);
     position: relative;;
     bottom:0px;
     margin-top: 200px;
 
     border-radius: 10px;
-}
+} */

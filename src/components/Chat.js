@@ -86,7 +86,7 @@ const Chat = () => {
                 </div>
             </div>
             <div className="name-field">
-                    <label for="message" className="messageInput">message: </label>
+                    <label className="chatMsg"for="message" className="messageInput">message: </label>
                     <input name="message" className="messageInput" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
                     onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
                     </input>

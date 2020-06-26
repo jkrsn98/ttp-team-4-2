@@ -5,3 +5,17 @@
     text-align: center;
     padding-top: 100px;
 }
+.gameInput{
+    position: absolute;
+    top: 64vh;
+    margin-left: 42vw;
+}
+.guessed{
+    position: absolute;
+    top: 50vh; 
+    margin-left: 43vw;
+    font-size: 40px;
+    font-family: fantasy;
+    /* margin: 0 auto; */
+    /* text-align: center; */
+}

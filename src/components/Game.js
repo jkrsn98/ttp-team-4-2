@@ -66,6 +66,10 @@ reRender=()=>{
   }
 }
 
+clearInput=()=>{
+  document.getElementsByClassName("gameInput").reset();
+}
+
   render() {
       console.log("answerleftover " + this.state.answerLeftOver)
       console.log("the answer is " + this.state.answer)
@@ -90,20 +94,21 @@ reRender=()=>{
           console.log("crrent worng" + this.state.currentWrong)
           this.reRender();
           guessedLetter();
+          this.setState({input: ''})
 }
 
 
     return (
       <div className="main">
         {status}
-        <form>
+        <form className="gameInput">
         <label>
           {player}
-          <input type="text" value={this.state.input} onChange={this.updateInput} />
+          <input type="text" maxLength="1" value={this.state.input} onChange={this.updateInput} />
         </label>
         <input onClick={calculate} type="submit" value="Submit" />
       </form>
-      <p>{guessedLetter()}</p>
+      <p className="guessed">{guessedLetter()}</p>
 
 
           
