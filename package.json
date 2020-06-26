@@ -17,8 +17,8 @@
     "socket.io-client": "^2.3.0"
   },
   "scripts": {
-    "server": "nodemon ./server/server.js --watch server",
-    "start": "node ./server/server.js",
+    "server": "nodemon server/server.js --watch server",
+    "start": "react-scripts start",
     "dev": "NODE_ENV=development react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
