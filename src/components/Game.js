@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Pic1 from "../pic/pic1.png";
-import Pic2 from "../pic/pic2.png";
-import Pic3 from "../pic/pic3.png";
-import Pic4 from "../pic/pic4.png";
-import Pic5 from "../pic/pic5.png";
-import Pic6 from "../pic/pic6.png";
+import Pic1 from "./pic_cropped/pic1_cropped.png";
+import Pic2 from "./pic_cropped/pic2_cropped.png";
+import Pic3 from "./pic_cropped/pic3_cropped.png";
+import Pic4 from "./pic_cropped/pic4_cropped.png";
+import Pic5 from "./pic_cropped/pic5_cropped.png";
+import Pic6 from "./pic_cropped/pic6_cropped.png";
 
 import randomWords from './randomWords'
 import './Game.css';
