@@ -218,8 +218,6 @@ updateInput = (e) =>{
         <br></br>
         <h4 style={{fontWeight: 'bold'}}>{status2}</h4>
         <h1>{display}</h1>
-        <br></br>
-        <br></br>
         <form>
         <label>
           <input type="text" className="inputField" maxLength={1} value={this.state.input} onChange={this.updateInput} />
