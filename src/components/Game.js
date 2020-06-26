@@ -17,7 +17,7 @@ constructor(props){
   this.state = {
     image: Pic1,
     images: [Pic1,Pic2,Pic3,Pic4,Pic5,Pic6],
-    wrong : 5,
+    wrong : 6,
     currentWrong: 0 ,
     answer: randomWords(),
     answerGotSoFar: [],
@@ -190,7 +190,7 @@ updateInput = (e) =>{
     
       let status
 
-    if(this.state.currentWrong > this.state.wrong +1)
+    if(this.state.currentWrong > 5)
        status = "GAME OVER!" 
        else if(this.state.answerLeftOver == 0)
        status = ("Winner!!!")
