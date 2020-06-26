@@ -202,7 +202,7 @@ updateInput = (e) =>{
         <br></br>
         <br></br>
         <br></br>
-        {display}
+        <h1>{display}</h1>
       
           
       </div>
