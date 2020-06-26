@@ -90,7 +90,7 @@ const Chat = () => {
         </div>
             <div className="messageField">
             <label for="message" className="messagePrompt">message: </label>
-            <input name="message" className="messageInput" id="msgfield" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
+            <input name="message" className="messageInput" id="msgfield" autoComplete="off" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
             onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
             </input>
             </div>
