@@ -74,24 +74,27 @@ const Chat = () => {
     console.log(message, messages);
 
     return (
+        <>
         <div className = "chatbox">
-            {/* <form onSubmit={onMessageSubmit}> */}
-
-                {/* <button>Send</button> */}
-            {/* </form> */}
-
             <div className="render-chat" id="scroll">
                 {renderChat()}
                 <div id={'el'} ref={el}>
                 </div>
             </div>
-            <div className="name-field">
+            {/* <div className="messageField">
                     <label for="message" className="messageInput">message: </label>
                     <input name="message" className="messageInput" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
                     onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
                     </input>
-            </div>
+            </div> */}
         </div>
+            <div className="messageField">
+            <label for="message" className="messagePrompt">message: </label>
+            <input name="message" className="messageInput" id="msgfield" onChange={(event) => setMessage(event.target.value)} value={message}  label="message" 
+            onKeyPress={event => event.key==='Enter' ? onMessageSubmit(event) : null}> 
+            </input>
+            </div>
+        </>
     )
 }
 
