@@ -1,17 +1,12 @@
-
 .chatbox{
     border: 1px solid rgba(194, 193, 193, 0.932);
     position:absolute;
     width:800px;
-    height:70%;
+    height:300px;
     bottom:0px;
     right:25%;
     left:50%;
-<<<<<<< HEAD
     margin-left:-400px; 
-=======
-    margin-left:-5%; 
->>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b
     /* overflow: scroll; */
     background-color: rgb(195, 212, 205);
     border-radius: 10px;
@@ -24,24 +19,7 @@
     overflow: scroll;
     /* top: 80vh; */
 }
-.name-field{
-    top: 2vh;
-    margin: 8px 0;
-    position: relative;
-    display: inline-block;
-    padding: 5px;
-    box-sizing: border-box;
-}
-.name{
-    margin-top: 20px;
-    text-align: center;
-    margin:20px;
-    border-radius: 5px;
-    width:10px;
-    background-color:#dfdbdb;
-    box-shadow: 0.5px 0.5px 0.5px black;
-    padding: 5px;
-}
+
 .message{
     margin:20px;
     border-radius: 5px;
@@ -50,24 +28,7 @@
     padding: 5px;
     
 }
-.sendBtn{
-    top: 2vh;
-    position: relative;
-    padding: 5px;
-    width: 70px;
-    box-shadow: 1.5px 1.5px 1.5px #666;
-    border-radius: 5px;
-    transition: .2s;
-    background-color: rgb(119, 145, 194);
-    border: rgb(119, 145, 194);
-    margin-left: 15px;
-    font-size: 15px;
-}
-.sendBtn:active {
-    background-color: rgb(98, 120, 161);
-    box-shadow: 1.5px 1.5px #666;
-    transform: translateY(3px);
-  }
+
 .chatName{
     margin:10px;
     border-radius: 5px;
@@ -80,29 +41,17 @@
     background-color: rgb(124, 120, 95);
     margin-top: 3vh;
 }
-<<<<<<< HEAD
-.messageInput{
-=======
 .chatMsg{
->>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b
     
     border: .5px solid black;
     justify-content: space-evenly;
     position: absolute;
     color: rgb(51, 31, 31);
-<<<<<<< HEAD
-    margin-top: 15vh;
-    margin-inline-start: 90%;
-    margin-right: 4%;
-    width: 50vw;
-=======
     margin-top: -45px;
     margin-inline-start: 90%;
     margin-right: 4%;
     width: max-content;
->>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b
     min-width: 50vw;
-    background-color: #aab4adfb;
     border-radius: 5px;
     padding: 5px;
     font-size: 20px;
@@ -110,10 +59,6 @@
     border-top-left-radius: 0px;
     padding: 1px;
     font-family: fantasy;
-<<<<<<< HEAD
-    margin-left: 15vw;
-=======
->>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b
 }
 .msgContainer{
   margin: 10px;
@@ -127,19 +72,11 @@ input{
     padding: 5px;
 }
 
-<<<<<<< HEAD
-/* .messageInput{
-=======
 .messageInput{
->>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b
     border: 1px solid rgba(194, 193, 193, 0.932);
     position: relative;;
     bottom:0px;
     margin-top: 200px;
 
     border-radius: 10px;
-<<<<<<< HEAD
-} */
-=======
 }
->>>>>>> 1f6b2bc0c88b4dc751f8af57a765ca5650b07f3b

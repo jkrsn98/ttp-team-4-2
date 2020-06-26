@@ -182,11 +182,11 @@ updateInput = (e) =>{
 
     return (
       <div  className="main">
-        <h4 style={{display: 'flex', justifyContent: 'center'}}>HANGMAN</h4>
+        <h4 style={{display: 'flex', justifyContent: 'center'}}>MELTMAN</h4>
         {status}
         <form>
         <label>
-          <input type="text" value={this.state.input} onChange={this.updateInput} />
+          <input type="text" maxLength={1} value={this.state.input} onChange={this.updateInput} />
         </label>
         <input class="btn btn-outline-dark"onClick={this.calculate} type="submit" value="Submit" />
           </form>
