@@ -1,56 +1,26 @@
 .chatbox{
+    font-size: 12px;
     border: 1px solid rgba(194, 193, 193, 0.932);
     position:absolute;
     width:600px;
     height:200px;
-    /* overflow: scroll; */
+    overflow: scroll;
     background-color: rgb(195, 212, 205);
     border-radius: 10px;
-    position:absolute;
-	position: absolute;
 	bottom: 0;
 	left: 0;
 }
 
-.render-chat{
-    position: absolute;
-    height: 200px;
-    width: 600px;
-    overflow: scroll;
-    /* top: 80vh; */
-}
 
-
-
-.chatName{
-    margin:10px;
-    border-radius: 5px;
-    justify-content: space-evenly;
-    width: max-content;
-    padding: 2px;
-    color: rgb(255, 255, 254);
-    font-size: 20px;
-    font-family: fantasy;
-    background-color: rgb(124, 120, 95);
-    margin-top: 3vh;
-}
-
-.msgContainer{
-  margin: 10px;
-}
-/* .darker {
-  border-color: #ccc;
-  background-color: #ddd;
-} */
-
-input{
-    padding: 5px;
+.messageField{
+    border: 1px solid rgba(194, 193, 193, 0.932);
+    position: absolute;;
+    bottom:0px;
+	bottom: 0;
+	left: 0;
+    border-radius: 10px;
 }
 
 .messageInput{
-    border: 1px solid rgba(194, 193, 193, 0.932);
-    position: relative;;
-    bottom:0px;
-    margin-top: 1px;
-    border-radius: 10px;
+    width: 520px;
 }
