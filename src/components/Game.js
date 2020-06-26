@@ -23,10 +23,8 @@ constructor(props){
     answerLeftOver: [],
     copy: [],
     input: "",
-    winner: "",
-    restarted: false,
   }
-  this.resetState = this.state
+  this.resetState = this.state;
 
 }
 
@@ -144,10 +142,11 @@ calculate=(e)=>{
 }
 
 
-reset = (e) =>
+NewGame = (e) =>
 {
   e.preventDefault();
   this.setState(this.resetState)
+  this.setState({answer: randomWords()})
   this.setState({answerLeftOver :[...this.state.answer]})
   this.setState({copy :[...this.state.answer]})
 
@@ -160,6 +159,22 @@ reset = (e) =>
   this.setState({answerGotSoFar: temp})
 }
 
+
+// newWord = (e) =>{
+//   e.preventDefault();
+//   this.setState(this.resetState)
+//   this.setState({answer: randomWords()})
+//   this.setState({answerLeftOver :[...this.state.answer]})
+//   this.setState({copy :[...this.state.answer]})
+
+//   let i;
+//   let temp = []
+//   for( i = 0; i < this.state.answer.length ; i++)
+//   {
+//     temp.push('_')
+//   }
+//   this.setState({answerGotSoFar: temp})
+// }
 
 
 
@@ -202,7 +217,9 @@ updateInput = (e) =>{
         </label>
         <input class="btn btn-outline-dark"onClick={this.calculate} type="submit" value="Submit" />
           </form>
-          <button type="button" class="btn btn-outline-danger" onClick={this.reset}>Reset</button>
+          <button type="button" class="btn btn-outline-danger" onClick={this.NewGame}>New Game</button>
+          {/* <button type="button" class="btn btn-outline-danger" onClick={this.newWord}>New Word</button> */}
+          
           
       
         {/* {this.state.answerGotSoFar.map((x) =>(
