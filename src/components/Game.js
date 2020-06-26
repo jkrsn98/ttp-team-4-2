@@ -188,13 +188,17 @@ updateInput = (e) =>{
       console.log("Need :" + this.state.answerLeftOver)
     
       let status
+      let status2 =""
 
-    if(this.state.currentWrong > this.state.wrong +1)
-       status = "GAME OVER!" 
-       else if(this.state.answerLeftOver == 0)
+       if(this.state.answerLeftOver == 0)
        status = ("Winner!!!")
      else 
+     {
         status = (<img src={this.state.image} alt="Pic"/>)
+        
+        if(this.state.currentWrong >= this.state.wrong + 1)
+          status2= "GAME OVER"
+     }
 
         console.log(" Got :" + this.state.answerGotSoFar )
 
@@ -210,6 +214,7 @@ updateInput = (e) =>{
     return (
       <div  className="main">
         <h4 style={{display: 'flex', justifyContent: 'center'}}>MELTMAN</h4>
+        {status2}
         {status}
         <form>
         <label>
