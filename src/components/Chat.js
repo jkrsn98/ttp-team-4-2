@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import io from 'socket.io-client'
 import './Chat.css'
-import queryString from 'query-string';
-import ScrollableFeed from 'react-scrollable-feed'
+// import queryString from 'query-string';
+// import ScrollableFeed from 'react-scrollable-feed'
 
 const socket = io.connect('http://localhost:3001')
 socket.on('chat-message', data =>{

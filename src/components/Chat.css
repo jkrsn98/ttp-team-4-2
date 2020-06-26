@@ -2,11 +2,11 @@
     border: 1px solid rgba(194, 193, 193, 0.932);
     position:absolute;
     width:800px;
-    height:300px;
+    height:70%;
     bottom:0px;
     right:25%;
     left:50%;
-    margin-left:-400px; 
+    margin-left:-5%; 
     /* overflow: scroll; */
     background-color: rgb(195, 212, 205);
     border-radius: 10px;

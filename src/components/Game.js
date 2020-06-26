@@ -180,9 +180,9 @@ updateInput = (e) =>{
         <label>
           <input type="text" value={this.state.input} onChange={this.updateInput} />
         </label>
-        <input onClick={this.calculate} type="submit" value="Submit" />
-        <button onClick={this.reset}>Reset</button>
+        <input class="btn btn-outline-dark"onClick={this.calculate} type="submit" value="Submit" />
           </form>
+          <button type="button" class="btn btn-outline-danger" onClick={this.reset}>Reset</button>
           
       
         {this.state.answerGotSoFar.map((x) =>(
